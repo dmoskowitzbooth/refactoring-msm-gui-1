@@ -10,4 +10,9 @@
 #  movie_id   :integer
 #
 class Character < ApplicationRecord
+  def movie
+    matching_movie=Character.where({ :actor_id=>self.id})
+    movie=matching_movie.at(0)
+    return movie
+  end
 end
